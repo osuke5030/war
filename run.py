@@ -40,7 +40,7 @@ def job():
         response = requests.get(URL,  headers=headers)
         r_text=response.text
         soup = BeautifulSoup(r_text, 'html.parser')
-        print('スニのウォーの取得完了')
+        print('スニウォーの取得完了')
 
         soup_div=soup.find_all("div",attrs={"class","col-6"})[0]
         url=soup_div.find("a")['href']
@@ -75,7 +75,6 @@ def job():
                 print("投稿しました")    
                 ws.cell(row=wb['Sheet1'].max_row+1,column=1).value = params["status"]
                 wb.save('war.xlsx')
-            print("")
         print("処理終了しました")
         print("")
 
