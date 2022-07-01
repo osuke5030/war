@@ -62,7 +62,7 @@ def job():
         media_id = json.loads(req_media.text)['media_id']
         print('画像の取得完了')
         soup_price=soup.find("dl",attrs={"class","extramode"}).text[soup.find("dl",attrs={"class","extramode"}).text.find("国内価格"):]
-        params = {'status':"新スニ情報！！！!!!\n\n{}\n\n{}".format(soup_name,soup_price,),'media_ids':[media_id]}
+        params = {'status':"新スニ情報!!!\n\n{}\n\n{}".format(soup_name,soup_price,),'media_ids':[media_id]}
         wb = openpyxl.load_workbook('war.xlsx')
         time.sleep(1)
         ws = wb["Sheet1"]
@@ -77,6 +77,7 @@ def job():
                 wb.save('war.xlsx')
             print("")
         print("処理終了しました")
+        print("")
 
     except IndexError:
         print("INDEX エラーです")       
@@ -88,7 +89,7 @@ def job():
 
 
 def main():
-    schedule.every(1).minutes.do(job)
+    schedule.every(3).seconds.do(job)
     while True:
         schedule.run_pending()
         time.sleep(1)
