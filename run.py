@@ -86,6 +86,10 @@ def job():
     except FileNotFoundError:
         print("NOT FILE エラーです")       
         print("")
+    
+    except KeyError:
+        print("KeyError エラーです")       
+        print("")
 
 
 def main():
